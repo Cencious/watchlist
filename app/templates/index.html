@@ -7,15 +7,16 @@
         {% else %}
         <title> Welcome to the best Movie Review website </title>
         {% endif %}
+        {% extends 'base.html' %}
         {% import 'macros.html' as macro%}
     </head>
     <body>
         
         <!-- <h1>{{message}}</h1> -->
         <!-- Popular movie section  -->
-        <!-- <h3> Popular Movies</h3> -->
-         <ul>
-            <!-- {% for popular_movie in popular %}
+        <!-- <h3> Popular Movies</h3>
+         <ul> 
+            {% for popular_movie in popular %}
                 <li>{{ popular_movie.title}}</li>
             {% endfor %}
         </ul> -->
@@ -27,8 +28,8 @@
        {% endfor %}
    </ul> -->
    <!-- Now showing movie -->
-   <!-- <h3>Now Showing</h3> -->
-    <!-- <ul>
+   <!-- <h3>Now Showing</h3> --> -->
+     <!-- <ul>
        {% for now_showing_movie in now_showing %}
            <li>{{ now_showing_movie.title}}</li>
        {% endfor %}
@@ -36,21 +37,41 @@
 
 
     <!-- Popular movie -->
-    <h3> Popular Movies</h3>
+    <!-- <h3> Popular Movies</h3>
     <ul>
         {{ macro.displayMovieList(popular)}}
-    </ul>
+    </ul> -->
     <!-- Upcoming movie  -->
-    <h3> Upcoming Movies </h3>
+    <!-- <h3> Upcoming Movies </h3>
     <ul>
         {{ macro.displayMovieList(upcoming)}}
-    </ul> -->
-    Now showing movie
+    </ul>  -->
+    <!-- Now showing movie
      <h3>Now Showing</h3>
     <ul>
         {{ macro.displayMovieList(now_showing)}}
-    </ul>
+    </ul> -->
+
+    <!-- Content block -->
+{% block content %}
+
+<!-- Popular movie -->
+<h3> Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h3> Upcoming Movies </h3>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
 
 
+{% endblock%}
     </body>
 </html>
