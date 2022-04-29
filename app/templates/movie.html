@@ -1,10 +1,10 @@
 <!-- <h1> Hello Movie {{ id }} </h1> -->
 {% extends 'base.html' %}
 <!-- content block  -->
-{% block content %}
-<div class="container">
+<!-- {% block content %} -->
+<!-- <div class="container"> -->
     <!-- poster background  -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-xs-6 col-sm-6   col-md-6 col-lg-6 posterpath" style="background: url({{movie.poster}}) no-repeat center">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
@@ -13,5 +13,25 @@
             <p class="ratings"> <b>{{movie.vote_average}}</b> - <i>{{movie.vote_count}} votes </i></p>
         </div>
     </div>
-</div>
-{%endblock %}
+</div> -->
+
+<!-- Content block -->
+{% block content %}
+
+<!-- Popular movie -->
+<h3> Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h3> Upcoming Movies </h3>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
+
+{% endblock%}

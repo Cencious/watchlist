@@ -53,6 +53,7 @@ def process_results(movie_list):
             movie_results.append(movie_object)
 
     return movie_results
+
 def get_movie(id):
     get_movie_details_url= base_url.format(id,api_key)
     with urllib.request.urlopen(get_movie_details_url)as url:
@@ -65,4 +66,19 @@ def get_movie(id):
         vote_count=movie_details_response.get('vote_count')
 
         movie_object= Movie(id,title,overview,poster,vote_average,vote_count)
+
     return movie_object
+
+def search_movie(movie_name):
+    search_movie_url = 'http://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,movie_name)
+    with urllib.request.urlopen(search_movie_url) as url:
+        search_movie_data= url.read()
+        search_movie_response= json.loads(search_movie_data)
+        search_movie_response=None
+        if search_movie_response['results']:
+            search_movie_list=search_movie_response['results']
+            search_movie_results= process_results(search_movie_list)
+
+            
+    return search_movie_results
+    
