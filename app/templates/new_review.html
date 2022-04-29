@@ -4,10 +4,11 @@
 {% block content %}
     <div class="container">
         <div class="col-md-8">
-            <img src="{{movie.poster}}" alt="{{movie-title}}" class="img-responsive">
+            <img src="{{movie.poster}}" alt="{{movie.title}}" class="img-responsive">
         </div>
         <div class="col-md-4">
-            {{wtf.quick_form(review_form)}}
+            {{ wtf.quick_form(review_form) }}
         </div>
     </div>
+    
 {% endblock %}
