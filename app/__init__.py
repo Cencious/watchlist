@@ -2,9 +2,10 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
 
+#bootstrap
 bootstrap = Bootstrap()
 
-def create_app(config_name):
+def create_app(config_name):#function that takes the configuration setting key as an argument
 
     app = Flask(__name__)
 
