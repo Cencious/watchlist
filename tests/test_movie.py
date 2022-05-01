@@ -14,3 +14,6 @@ class MovieTest(unittest.TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_movie,Movie))
+
+if __name__ == '__main__':
+    unittest.main()  
