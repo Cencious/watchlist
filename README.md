@@ -43,8 +43,7 @@ Now navigate to your browser at: localhost://127.0.0.15000/
 **Reviews:**<br />
 ![Alt text](./app/static/rev.png "Optional Title")
 
-**Technologies Used**
-****
+## Technologies Used
 
 *Python3.8.10*<br />
 *Flask2.11*<br />
@@ -55,8 +54,8 @@ Now navigate to your browser at: localhost://127.0.0.15000/
 Feel free to reach out via email address  kancencious@gmail.com
 
 
-**License**
-****
+## License
+
 MIT License <br/>
 Copyright (c) 2022 Innoncencia Kakan/Watchlist
 
