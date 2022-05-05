@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
             <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
             <li class="text-center">
-                <a href="/movie/{{movie.id}}">
+                <a href="/movie/{{movie.id}}" style="font-weight: 800; text-decoration: none; color: rgb(1, 2, 42);">
                     {{ movie.title|truncate(10)}}</a>
             </li>
         </div>
@@ -20,4 +20,5 @@
         <p> {{ review.review | truncate(30) }}</p>
     </div>
     {% endfor %}
+
 {% endmacro %}

@@ -1,7 +1,7 @@
 from flask import Blueprint
-    '''
-    Application Blueprint for defining routes.
-    '''
+'''
+Application Blueprint for defining routes.
+'''
 
 main = Blueprint('main',__name__)
 #The Blueprint class takes in 2 arguments. The name of the blueprint and the __name__ variable to find the location of the blueprint.
