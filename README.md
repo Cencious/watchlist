@@ -46,12 +46,9 @@ Now navigate to your browser at: localhost://127.0.0.15000/
 **Technologies Used**
 ****
 
-*Python3.9.10*<br />
+*Python3.8.10*<br />
 *Flask2.11*<br />
-
-**WakaTime Statistics**<br />
-*Total coding time:* <br />
-![Alt text](/screenshots/stats.png?raw=true "Optional Title")
+*HTML5.1*<br /> 
 
 
 ## Support and contact details
