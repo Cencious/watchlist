@@ -38,10 +38,10 @@ Now navigate to your browser at: localhost://127.0.0.15000/
 ![Alt text](./app/static/upcoming.png "Optional Title")
 
 **Now showing:**
-![Alt text](/screenshots/now.png?raw=true "Optional Title")
+![Alt text](./app/static/now%20.png "Optional Title")
 
 **Reviews:**<br />
-![Alt text](/screenshots/review.png?raw=true "Optional Title")
+![Alt text](./app/static/rev.png "Optional Title")
 
 **Technologies Used**
 ****
