@@ -1,4 +1,6 @@
 from . import db
+from werkzeug.security import generate_password_hash,check_password_hash
+
 
 class Movie:
     '''
@@ -55,8 +57,19 @@ class User(db.Model):
     #We create columns using the db.Column class which will represent a single column. We pass in the type of the data to be stored as the first argument. db.Integer specifies the data in that column should be an Integer.
 
     username = db.Column(db.String(255))
+    pass_secure = db.Column(db.String(255))# db.Integer specifies the data in that column should be an Integer.
 
-    # db.Integer specifies the data in that column should be an Integer.
+    @property #We use the @property decorator to create a write only class property password
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self,password):#takes in a password, hashes it and compares it to the hashed password to check if they are the same.
+        return check_password_hash(self.pass_secure,password)
+
+
 
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     #This tells SQLAlchemy that this is a foreign key and is the ID of a Role model.
@@ -74,5 +87,5 @@ class Role(db.Model):
     users = db.relationship('User',backref = 'role',lazy="dynamic")
     #We use db.relationship to create a virtual column that will connect with the foreign key, pass in 3 arguments. user is the class we are referencing,backref allows us to access and set our User class.
 
-def __repr__(self):
-    return f'User {self.name}'
+    def __repr__(self):
+        return f'User {self.name}'
