@@ -26,5 +26,10 @@ def create_app(config_name): # function that takes the configuration setting key
     # Setting config
     from .request import configure_request
     configure_request(app)
+
+    #register_blueprint instance
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
     
     return app
