@@ -7,7 +7,7 @@ from flask_login import LoginManager
 
 
 login_manager = LoginManager()
-login_manager.session_protection = 'strong'
+login_manager.session_protection = 'strong' #this attribute provides different security levels and by setting it to strong will monitor the changes in a user's request header and log the user out.
 login_manager.login_view = 'auth.login'
 
 #bootstrap
