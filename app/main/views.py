@@ -3,7 +3,7 @@ from . import main
 from ..request import get_movies, get_movie, search_movie
 from ..models import Review
 from .forms import ReviewForm
-from . import main
+from flask_login import login_required
 
 #Views
 
