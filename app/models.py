@@ -1,5 +1,7 @@
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin
+from . import login_manager
 
 
 class Movie:
@@ -47,7 +49,7 @@ class Review:
 
         return response
 
-class User(db.Model):
+class User(UserMixin,db.Model):
     #We create a User class that will help us create new users. We pass in db.Model as an argument. This will connect our class to our database and allow communication.
 
     __tablename__ = 'users'
@@ -56,7 +58,10 @@ class User(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     #We create columns using the db.Column class which will represent a single column. We pass in the type of the data to be stored as the first argument. db.Integer specifies the data in that column should be an Integer.
 
-    username = db.Column(db.String(255))
+    username = db.Column(db.String(255),index =True)
+    email = db.Column(db.String(255),unique = True,index = True)
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    password_hash = db.Column(db.String(255))
     pass_secure = db.Column(db.String(255))# db.Integer specifies the data in that column should be an Integer.
 
     @property #We use the @property decorator to create a write only class property password
@@ -76,6 +81,11 @@ class User(db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+        
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 
 class Role(db.Model):
     __tablename__ = 'roles'
